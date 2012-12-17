@@ -1,0 +1,14 @@
+{
+  "name": "yt-elec-2013",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.0.4",
+    "mongoose": "~3.5.1",
+    "consolidate": "~0.5.0",
+    "sugar": "~1.3.7"
+  }
+}
