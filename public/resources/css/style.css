@@ -14,14 +14,38 @@
     top: 2px;
     margin-left: 10px;
     float: left;
-    width: 100px;
     height: 45px;
     background: url(images/ticker-bg.png);
 }
 
-.timer span.countdown_section {
+.timer div {
     float: left;
-    margin: 2px 5px;
+    margin: 2px 2px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 3px;
+}
+
+.timer div.month {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.timer div.seconds {
+    padding-right: 20px;
+}
+
+.timer div.digit {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.timer div.divider {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px;
 }
 
 .timer:before {
