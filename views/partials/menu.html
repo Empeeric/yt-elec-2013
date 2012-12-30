@@ -2,11 +2,13 @@
     {@menu}
         {?.child}
             <li {?dock}class="active"{/dock}><a href="{?url}{url}{:else}?id={id}{/url}">{title}</a>
+                {?dock}
                 <ul>
                     {#child}
                     <li><a href="{url}">{title}</a></li>
                     {/child}
                 </ul>
+                {/dock}
             </li>
         {:else}
             <li {?dock}class="active"{/dock}><a href="{?url}{url}{:else}?id={id}{/url}">{title}</a>
