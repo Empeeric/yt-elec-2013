@@ -139,8 +139,11 @@
 }
 
 .top-frame ul {
+    position: relative;
+    top: 40px;
+    left: 10px;
     list-style-type: none;
-    margin: 20px 0 0 0;
+    margin: 0;
     padding: 0;
 }
 

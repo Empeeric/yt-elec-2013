@@ -132,4 +132,16 @@ module.exports = function(app){
         }
     });
 
+    app.get('/youtube', function(req, res){
+        var youtube = require('youtube-feeds');
+
+        youtube.feeds.videos(req.query, function(data){
+            res.json(data);
+        });
+
+        /*youtube.user('ynet').playlists(function(err, json){
+            res.json(err || json);
+        })*/
+    })
+
 };

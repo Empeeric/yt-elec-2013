@@ -1,0 +1,9 @@
+<div class="player"></div>
+
+<div class="gallery">
+    {@feeds author="ynet" max-results=12 start-index=1 orderby="published"}
+        {#items}
+            <img src="{#thumbnail}{sqDefault}{/thumbnail}" alt="">
+        {/items}
+    {/feeds}
+</div>

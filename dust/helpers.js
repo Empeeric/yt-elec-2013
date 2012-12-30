@@ -1,4 +1,5 @@
 var dust = require('dustjs-helpers'),
+    youtube = require('youtube-feeds'),
     models = require('../models');
 
 dust.helpers['cloudinary'] = function (chunk, context, bodies, params) {
@@ -13,6 +14,18 @@ dust.helpers['cloudinary'] = function (chunk, context, bodies, params) {
             context.public_id, params
         )
     )
+};
+
+dust.helpers['feeds'] = function(chunk, context, bodies, params) {
+    return chunk.map(function(chunk) {
+
+        youtube.feeds.videos(params, function(data){
+            context = context.push(data);
+            chunk.render(bodies.block, context);
+            chunk.end();
+        });
+
+    })
 };
 
 dust.helpers['banners'] = function(chunk, context, bodies) {
