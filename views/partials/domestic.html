@@ -1,9 +1,22 @@
-<div class="player"></div>
+<div class="player">
+
+</div>
 
 <div class="gallery">
+
     {@feeds author="ynet" max-results=12 start-index=1 orderby="published"}
+        <ul>
         {#items}
-            <img src="{#thumbnail}{sqDefault}{/thumbnail}" alt="">
+            <li>
+                <a href="{#player}{default}{/player}" data-id="{id}">
+                    <img src="{#thumbnail}{sqDefault}{/thumbnail}" alt="">
+                    <h2>{title}</h2>
+                    <div>by {uploader} {viewCount} views</div>
+                </a>
+            </li>
         {/items}
+        </ul>
+
+        <div class="clear"></div>
     {/feeds}
 </div>
