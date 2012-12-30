@@ -73,6 +73,7 @@
 }
 
 .menu li {
+    position: relative;
     float: right;
     margin-left: 18px;
 }
@@ -120,6 +121,60 @@
 
 .menu li a:hover::after {
     background: url(images/arrow-left-bg-hover.png);
+}
+
+.menu li ul li {
+    margin-left: 12px;
+}
+
+.menu li ul {
+    width: 970px;
+    position: absolute;
+    border-top: 2px solid #7b7b7b;
+    border-bottom: 2px solid #7b7b7b;
+    right: -28px;
+}
+
+.menu li ul a {
+    color: #000000;
+    height: 35px;
+    line-height: 35px;
+    background: url(images/sub-menu-bg.png);
+    padding-right: 15px;
+}
+
+.menu li ul a::before {
+    content: '';
+    background: none;
+    height: 35px;
+    width: 6px;
+}
+
+.menu li ul a::after {
+    content: '';
+    background: url(images/sub-menu-arrow.png);
+    height: 35px;
+    width: 12px;
+    left: -12px;
+}
+
+.menu li ul a:hover::after {
+     content: '';
+     background: url(images/sub-menu-arrow-hover.png);
+     height: 35px;
+     width: 12px;
+ }
+
+.menu li ul a:hover::before {
+    content: '';
+    background: url(images/sub-menu-arrow-right-hover.png);
+    height: 35px;
+    width: 6px;
+    right: -6px;
+}
+
+.menu li ul a:hover {
+    background: url(images/sub-menu-bg-hover.png);
 }
 
 .frame {
