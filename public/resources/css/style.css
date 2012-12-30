@@ -9,7 +9,7 @@
     background: url(images/menu-bg.png);
 }
 
-.ticker {
+.timer {
     position: relative;
     top: 2px;
     margin-left: 10px;
@@ -19,7 +19,7 @@
     background: url(images/ticker-bg.png);
 }
 
-.ticker:before {
+.timer:before {
     float: left;
     display: block;
     content: '';
@@ -28,7 +28,7 @@
     background: url(images/ticekr-left.png);
 }
 
-.ticker:after {
+.timer:after {
     float: right;
     display: block;
     content: '';
@@ -107,6 +107,24 @@
 
 .top-frame {
     height: 105px;
+}
+
+.top-frame ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.top-frame li {
+    float: left;
+}
+
+.top-frame li.news-ticker div {
+    background: white;
+    box-shadow: inset 2px 2px 8px #999999;
+    border-radius: 6px;
+    width: 495px;
+    height: 33px;
 }
 
 .inner-frame {

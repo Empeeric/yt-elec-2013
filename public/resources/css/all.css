@@ -1,0 +1,11 @@
+/* glue: 0.2.8.1 hash: 8bc5b0fcd6 */
+.sprite-all-youtube,
+.sprite-all-ynet,
+.sprite-all-google-news,
+.sprite-all-nav-arrow-right,
+.sprite-all-nav-arrow-left{background-image:url('images/all.png');background-repeat:no-repeat}
+.sprite-all-youtube{background-position:0px 0px;width:131px;height:55px;}
+.sprite-all-ynet{background-position:0px -55px;width:126px;height:55px;}
+.sprite-all-google-news{background-position:-131px 0px;width:118px;height:55px;}
+.sprite-all-nav-arrow-right{background-position:-131px -55px;width:29px;height:50px;}
+.sprite-all-nav-arrow-left{background-position:-160px -55px;width:29px;height:50px;}
