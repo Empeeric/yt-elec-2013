@@ -25,14 +25,18 @@
         });
 
 
+
+
+
         $('.gallery a').on('click', function(e){
             e.preventDefault();
 
-            console.log($(this).data('id'));
-
             $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/'+ $(this).data('id') +'" frameborder="0" allowfullscreen></iframe>')
 
-        })
+        });
+
+        if($('.gallery')) $('.gallery li:first a').click();
+
     })
 })(jQuery);
 
