@@ -225,5 +225,13 @@
                         inset 0px 150px 250px 0px #666;
             box-shadow: inset 0px 0px 60px 0px #000,
                         inset 0px 150px 250px 0px #666;
+
+    padding: 20px 10px;
 }
 
+.player {
+    width: 640px;
+    height: 370px;
+    background: black;
+    margin: auto;
+}
