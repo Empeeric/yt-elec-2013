@@ -19,6 +19,11 @@
     background: url(images/ticker-bg.png);
 }
 
+.timer span.countdown_section {
+    float: left;
+    margin: 2px 5px;
+}
+
 .timer:before {
     float: left;
     display: block;
