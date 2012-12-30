@@ -1,5 +1,15 @@
 <ul>
     {@menu}
-    <li {?dock}class="active"{/dock}><a href="{?url}{url}{:else}?id={id}{/url}">{title}</a></li>
+        {?.child}
+            <li {?dock}class="active"{/dock}><a href="{?url}{url}{:else}?id={id}{/url}">{title}</a>
+                <ul>
+                    {#child}
+                    <li><a href="{url}">{title}</a></li>
+                    {/child}
+                </ul>
+            </li>
+        {:else}
+            <li {?dock}class="active"{/dock}><a href="{?url}{url}{:else}?id={id}{/url}">{title}</a>
+        {/child}
     {/menu}
 </ul>

@@ -172,17 +172,39 @@ dust.helpers['main_title'] = function(chunk, context, bodies) {
 
 dust.helpers['menu'] = function(chunk, context, bodies) {
     var page = context.get('page'),
-        crumbs = context.get('crumbs');
+        crumbs = context.get('crumbs'),
+        items = [];
 
     return chunk.map(function(chunk) {
         models
             .navigation
             .where('show', true)
             .where('menu', true)
-            .sort({order: 1})
-            .exec(function(err, menu){
+            .sort({order: 1, parent: 1})
+            .exec(function(err, menu) {
                 menu.forEach(function(item){
                     item = item.toObject();
+                    items.push(item);
+                });
+                //create children tree
+                var itemTree = [];
+                items.forEach(function(item){
+                    if(item.parent){
+                        items.forEach(function(parent){
+                            if(parent._id.id == item.parent.id){
+                                if(parent.child){
+                                    parent.child.push(item);
+                                } else {
+                                    parent.child = [];
+                                    parent.child.push(item);
+                                }
+                            }
+                        });
+                    } else {
+                        itemTree.push(item);
+                    }
+                });
+                itemTree.forEach(function(item){
                     item.dock = (crumbs[0]._id.toString() === item._id.toString());
                     context = context.push(item);
                     chunk.render(bodies.block, context)
