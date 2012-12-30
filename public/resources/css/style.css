@@ -111,12 +111,15 @@
 
 .top-frame ul {
     list-style-type: none;
-    margin: 0;
+    margin: 20px 0 0 0;
     padding: 0;
 }
 
 .top-frame li {
     float: left;
+    height: 55px;
+    position: relative;
+    margin-right: 17px;
 }
 
 .top-frame li.news-ticker div {
@@ -125,6 +128,7 @@
     border-radius: 6px;
     width: 495px;
     height: 33px;
+    margin-top: 15px;
 }
 
 .inner-frame {
