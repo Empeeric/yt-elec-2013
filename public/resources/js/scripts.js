@@ -39,10 +39,12 @@
 
         v.json = {author: 'ynet'};
 
-        var render_gallery = function(){
+        var render_gallery = function(select){
             v.feeds().done(function(){
                 dust.render('gallery', v.data, function(err, html){
-                    $('.gallery').html(html).find('li:first a').click();
+                    $('.gallery').html(html);
+                    if(select)
+                        $('.gallery li:first a').click();
                 })
             })
         };
@@ -70,7 +72,7 @@
             render_gallery();
         });
 
-        render_gallery();
+        render_gallery(true);
     })
 })(jQuery);
 
