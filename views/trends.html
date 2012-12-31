@@ -24,23 +24,28 @@
         </div>
 
         <div class="inner-frame">
+            <div class="trends-right">
+                <h2>{config.prev_elections}</h2>
+                <div class="map"></div>
+            </div>
 
-            <div class="parties">
-                {@content}
+            <div class="trends">
+                <h2>{config.trends}</h2>
+                <div class="trend">
+                </div>
+
+                <h2>{config.old_trends}</h2>
+
                 <ul>
-                    {#items}
-                    <li>
-                        <img src="{@cloudinary path="picture" width="296" height="196" crop="pad"/}" alt="{title}">
-                        <div class="hide">{text|s}</div>
-                    </li>
-                    {/items}
+
+                {@trends}
+                    <li data-picture="{@cloudinary path="picture" width="422" height="298" crop="fill" /}" data-history="{@cloudinary path="history_picture" width="422" height="66" crop="fill" /}"></li>
+                {/trends}
+
                 </ul>
-                {/content}
             </div>
-            <div class="party_text_holder">
-                <h2>על המפלגה</h2>
-                <div class="party_text"></div>
-            </div>
+
+            <div class="clear"></div>
         </div>
     </div>
 </div>

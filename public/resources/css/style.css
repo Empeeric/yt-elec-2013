@@ -300,6 +300,10 @@
     box-shadow: 5px 5px 10px gray;
 }
 
+.parties ul li img {
+    width: 100%;
+}
+
 .parties {
     position: relative;
     top: 125px;
@@ -318,6 +322,7 @@
     position: relative;
     top: 250px;
 }
+
 
 .party_text_holder .party_text {
     border: 3px rgba(255, 255, 255, 0.6) solid;
@@ -340,6 +345,43 @@
 
 .hide {
     display: none;
+}
+
+.trends-right {
+    float: right;
+    margin-right: 10px;
+}
+
+.trends-right h2,
+.trends h2 {
+    font-size: 16px;
+}
+
+.trends {
+    float: left;
+    margin-left: 10px;
+}
+
+.trends ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trends ul li {
+    height: 66px;
+    margin-bottom: 10px;
+}
+
+.trend {
+    width: 422px;
+    height: 298px;
+    background: white;
+}
+.map {
+    background: url(images/map.jpg);
+    width: 420px;
+    height: 298px;
 }
 
 .clear {

@@ -41,12 +41,28 @@
             $('.party_text').html($(this).find('div').html());
         });
 
+        var trends = $('.trends li').clone();
+
+        $('.trend').append(
+            $('<img/>').attr('src', $('.trends li:first').data('picture'))
+        );
+
+        $('.trends li:first').remove();
+
+        $('.trends li').each(function(){
+            var self = this;
+            $(self).append(
+                $('<img/>').attr('src', $(self).data('history'))
+            );
+        });
+
         var v = new Videos();
 
         v.json = {author: 'ynet'};
 
         var render_gallery = function(select){
             v.feeds().done(function(){
+                console.log(v.data);
                 dust.render('gallery', v.data, function(err, html){
                     $('.gallery').html(html);
                     if(select)
