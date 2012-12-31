@@ -24,23 +24,6 @@
                 '</div>'
         });
 
-        //init the map
-        var myLatLng = new google.maps.LatLng(31.7833, 35.2167);
-
-        var mapOptions = {
-            center: myLatLng,
-            zoom: 8,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map"),
-            mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: myLatLng,
-            map: map,
-            title:"Hello World!"
-        });
-
         var $sub_menu = $('.menu ul ul li'),
             top_zindex = $sub_menu.length;
 
@@ -79,7 +62,6 @@
 
         var render_gallery = function(select){
             v.feeds().done(function(){
-                console.log(v.data);
                 dust.render('gallery', v.data, function(err, html){
                     $('.gallery').html(html);
                     if(select)
