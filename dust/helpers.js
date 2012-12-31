@@ -28,15 +28,15 @@ dust.helpers['feeds'] = function(chunk, context, bodies, params) {
     })
 };
 
-dust.helpers['banners'] = function(chunk, context, bodies) {
+dust.helpers['trends'] = function(chunk, context, bodies) {
     return chunk.map(function(chunk) {
         models
-            .banners
+            .trends
             .where('show', 1)
             .sort({order: 1})
-            .exec(function(err, banners){
-                banners.forEach(function(banner){
-                    context = context.push(banner);
+            .exec(function(err, trends){
+                trends.forEach(function(trend){
+                    context = context.push(trend);
                     chunk.render(bodies.block, context)
                 });
                 chunk.end();

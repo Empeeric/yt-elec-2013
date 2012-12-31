@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {>"partials/head.html"/}
+</head>
+<body>
+<div class="container">
+    <div class="menu">
+        {>"partials/timer.html"/}
+
+        {>"partials/menu.html"/}
+    </div>
+
+    <div class="frame">
+        <div class="top-frame">
+            <ul>
+                <li class="sprite-all-google-news"></li>
+                <li class="news-ticker">
+                    {>"partials/ticker.html"/}
+                </li>
+                <li class="sprite-all-youtube"></li>
+                <li class="sprite-all-ynet"></li>
+            </ul>
+        </div>
+
+        <div class="inner-frame">
+            <div class="trends-right">
+                <h2>{config.prev_elections}</h2>
+                <div class="map"></div>
+            </div>
+
+            <div class="trends">
+                <h2>{config.trends}</h2>
+                <div class="trend">
+                </div>
+
+                <h2>{config.old_trends}</h2>
+
+                <ul>
+
+                {@trends}
+                    <li data-picture="{@cloudinary path="picture" width="422" height="298" crop="fill" /}" data-history="{@cloudinary path="history_picture" width="422" height="66" crop="fill" /}"></li>
+                {/trends}
+
+                </ul>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+{>"partials/scripts.html"/}
+</body>
+</html>
