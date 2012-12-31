@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <style type="text/css">
+        ul {
+            list-style-type: none;
+            margin: 0 auto;
+            padding: 0;
+            width: 600px;
+            height: 500px;
+
+        }
+
+        ul li {
+            width: 300px;
+            height: 200px;
+            background: #a9a9a9;
+            text-align: center;
+        }
+
+        div.parties {
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="resources/js/jquery.roundabout.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $('.parties ul').roundabout({
+                tilt: -3,
+                minScale: 0.3
+            });
+        })
+    </script>
+</head>
+<body>
+
+<div class="parties">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+    </ul>
+</div>
+
+</body>
+</html>

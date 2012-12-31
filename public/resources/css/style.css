@@ -2,6 +2,7 @@
     direction: rtl;
     width: 970px;
     margin: auto;
+    font-family: Arial, sans-serif;
 }
 
 .menu {
@@ -209,10 +210,10 @@
     position: relative;
     background: url(images/bg.png);
     min-height: 580px;
-    -webkit-box-shadow: inset 0px 0px 60px 0px #000,
-                        inset 0px 150px 250px 0px #666;
-            box-shadow: inset 0px 0px 60px 0px #000,
-                        inset 0px 150px 250px 0px #666;
+    -webkit-box-shadow: inset 0px 0px 15px 0px #333,
+                        inset 0px 5px 40px 0px #666;
+            box-shadow: inset 0px 0px 15px 0px #333,
+                        inset 0px 5px 40px 0px #666;
 
     padding: 20px 10px;
 }
@@ -288,16 +289,19 @@
 
 .parties ul {
     list-style-type: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    width: 700px;
+    height: 300px;
 }
 
 .parties ul li {
     width: 300px;
     height: 200px;
     color: white;
-    background: #d3d3d3;
-    box-shadow: 5px 5px 10px gray;
+    background: #fff;
+    box-shadow: 3px 3px 10px gray;
+    border: 5px solid #d4d4d4;
 }
 
 .parties ul li img {
@@ -306,13 +310,28 @@
 
 .parties {
     position: relative;
-    top: 125px;
     width: 750px;
     margin: auto;
+    margin-bottom: 50px;
 }
 
+.parties-next,
+.parties-prev {
+    position: absolute;
+    display: block;
+    text-decoration: none;
+}
+
+.parties-next {
+    left: -75px;
+    top: 45%;
+}
+
+.parties-prev {
+    right: -80px;
+    top: 45%;
+}
 .party_text_holder h2 {
-    font-family: Arial;
     font-size: 18px;
     margin-right: 30px;
     line-height: 10px;
@@ -320,9 +339,7 @@
 
 .party_text_holder {
     position: relative;
-    top: 250px;
 }
-
 
 .party_text_holder .party_text {
     border: 3px rgba(255, 255, 255, 0.6) solid;

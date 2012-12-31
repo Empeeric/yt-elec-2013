@@ -32,7 +32,10 @@
         });
 
         $('.parties ul').roundabout({
-            shape: 'lazySusan'
+            tilt: -4,
+            duration: 400,
+            btnNext: '.parties-next',
+            btnPrev: '.parties-prev'
         }, function(){
             $('.party_text').html($('.parties li:first').find('div').html());
         });
