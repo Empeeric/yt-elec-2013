@@ -1,5 +1,5 @@
 (function($){
-    var electionDate = new Date(2013, 1, 22, 22, 0, 0, 0);
+    var electionDate = new Date("Tue, 22 Jan 2013 22:00:00 GMT");
 
     $(function(){
         //init the timer
@@ -34,6 +34,17 @@
         $('.parties ul').roundabout({
             shape: 'lazySusan'
         });
+        info.midStage = {
+            width: info.stage.width / 2.69,
+            //original value was 2.0 - changed to resize the item and move it closer to the middle
+            height: info.stage.height / 2
+        };
+
+        info.nudge = {
+            width: info.midStage.width + (info.stage.width * 0.18),
+            //original value was 0.05 - changed to resize the item and move it closer to the middle
+            height: info.midStage.height + (info.stage.height * 0.05)
+        };
 
         var v = new Videos();
 
