@@ -334,6 +334,10 @@
     margin: 2px;
 }
 
+.inner-frame img.fake {
+    padding: 95px 140px;
+}
+
 .hide {
     display: none;
 }
