@@ -24,6 +24,13 @@
                 '</div>'
         });
 
+        var $sub_menu = $('.menu ul ul li'),
+            top_zindex = $sub_menu.length;
+
+        $sub_menu.each(function(){
+           $(this).css('z-index', top_zindex--);
+        });
+
         $('.parties ul').roundabout({
             shape: 'lazySusan'
         });
