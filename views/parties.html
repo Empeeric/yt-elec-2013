@@ -29,12 +29,18 @@
                 {@content}
                 <ul>
                     {#items}
-                    <li>{title}</li>
+                    <li>
+                        <img class="party-image" src="{@cloudinary path="picture" width="296" height="196" crop="fill"/}" alt="{title}">
+                        <div class="hide">{text|s}</div>
+                    </li>
                     {/items}
                 </ul>
                 {/content}
             </div>
-
+            <div class="party_text_holder">
+                <h2>על המפלגה</h2>
+                <div class="party_text"></div>
+            </div>
         </div>
     </div>
 </div>

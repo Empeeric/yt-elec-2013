@@ -307,6 +307,37 @@
     margin: auto;
 }
 
+.party_text_holder h2 {
+    font-family: Arial;
+    font-size: 18px;
+    margin-right: 30px;
+    line-height: 10px;
+}
+
+.party_text_holder {
+    position: relative;
+    top: 250px;
+}
+
+.party_text_holder .party_text {
+    border: 3px rgba(255, 255, 255, 0.6) solid;
+    height: 260px;
+    border-radius: 5px;
+    margin: 0 25px;
+    color: #333;
+    padding: 0 17px 8px 17px;
+    overflow: hidden;
+    line-height: 150%;
+}
+
+.party_text_holder .party-image {
+    margin: 2px;
+}
+
+.hide {
+    display: none;
+}
+
 .clear {
     clear: both;
 }

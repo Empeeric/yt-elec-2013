@@ -33,18 +33,13 @@
 
         $('.parties ul').roundabout({
             shape: 'lazySusan'
+        }, function(){
+            $('.party_text').html($('.parties li:first').find('div').html());
         });
-        info.midStage = {
-            width: info.stage.width / 2.69,
-            //original value was 2.0 - changed to resize the item and move it closer to the middle
-            height: info.stage.height / 2
-        };
 
-        info.nudge = {
-            width: info.midStage.width + (info.stage.width * 0.18),
-            //original value was 0.05 - changed to resize the item and move it closer to the middle
-            height: info.midStage.height + (info.stage.height * 0.05)
-        };
+        $('.parties li').bind('focus', function(e){
+            $('.party_text').html($(this).find('div').html());
+        });
 
         var v = new Videos();
 
