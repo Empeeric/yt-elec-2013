@@ -30,7 +30,7 @@
                 <ul>
                     {#items}
                     <li>
-                        <img class="party-image" src="{@cloudinary path="picture" width="296" height="196" crop="fill"/}" alt="{title}">
+                        <img src="{@cloudinary path="picture" width="296" height="196" crop="pad"/}" alt="{title}">
                         <div class="hide">{text|s}</div>
                     </li>
                     {/items}

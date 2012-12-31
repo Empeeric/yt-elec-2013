@@ -300,6 +300,10 @@
     box-shadow: 5px 5px 10px gray;
 }
 
+.parties ul li img {
+    width: 100%;
+}
+
 .parties {
     position: relative;
     top: 125px;
@@ -337,6 +341,7 @@
 
 .hide {
     display: none;
+}
 
 .trends-right {
     float: right;
@@ -361,6 +366,7 @@
 
 .trends ul li {
     height: 66px;
+    margin-bottom: 10px;
 }
 
 .trend {
