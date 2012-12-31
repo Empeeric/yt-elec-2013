@@ -24,11 +24,21 @@
                 '</div>'
         });
 
-        $.postJSON('/youtube/feeds', {author: 'ynet', 'max-results': 12, 'start-index': 1}, function(data){
-            dust.render('gallery', data, function(err, html){
-                $('.gallery').append(html).find('li:first a').click();
-            })
+        $('.parties ul').roundabout({
+            shape: 'lazySusan'
         });
+
+        var v = new Videos();
+
+        v.json = {author: 'ynet'};
+
+        var render_gallery = function(){
+            v.feeds().done(function(){
+                dust.render('gallery', v.data, function(err, html){
+                    $('.gallery').html(html).find('li:first a').click();
+                })
+            })
+        };
 
         $('.gallery').on('click', 'a', function(e){
             e.preventDefault();
@@ -37,16 +47,58 @@
             $(this).addClass('active');
 
             $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/'+ $(this).data('id') +'" frameborder="0" allowfullscreen></iframe>')
-
         });
 
-        $('.parties ul').roundabout({
-            shape: 'lazySusan'
+        $('.gallery-prev').on('click', function(e){
+            e.preventDefault();
+
+            v.prev();
+            render_gallery();
         });
 
-        //if($('.gallery')) $('.gallery li:first a').click();
+        $('.gallery-next').on('click', function(e){
+            e.preventDefault();
 
+            v.next();
+            render_gallery();
+        });
+
+        render_gallery();
     })
+})(jQuery);
+
+(function($){
+    var Videos = window.Videos = function(){
+        this.data = {};
+        this.json = {};
+        this.page = 1;
+        this.pages = 0;
+        this.items_per_page = 12;
+        this.total_items = 0;
+    };
+
+    Videos.prototype.feeds = function(){
+        var self = this;
+
+        var json = $.extend(self.json, {'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1});
+
+        return $.postJSON('/youtube/feeds', json , function(data){
+            self.total_items = data.totalItems;
+            self.pages = Math.ceil(self.total_items / self.items_per_page);
+
+            self.data = data;
+        });
+    };
+
+    Videos.prototype.next = function(){
+        this.page++;
+        if(this.page > this.pages) this.page = 1;
+    };
+
+    Videos.prototype.prev = function(){
+        this.page--;
+        if(this.page <= 0) this.page = this.pages;
+    };
 })(jQuery);
 
 

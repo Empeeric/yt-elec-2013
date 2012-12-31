@@ -75,52 +75,56 @@
 .menu li {
     position: relative;
     float: right;
-    margin-left: 18px;
+    margin-left: 19px;
 }
 
 .menu li a {
     display: block;
     height: 52px;
-    background: url(images/arrow-bg.png);
+    background: url(images/arrow-menu-bg.png);
     line-height: 52px;
     color: white;
     font-size: 18px;
     text-decoration: none;
     white-space: nowrap;
+    padding: 0 15px;
 }
 
 .menu li a::after {
-     float: left;
-     content: '';
-     display: block;
-     width: 14px;
-     height: 52px;
-     background: url(images/arrow-left-bg.png);
-     position: relative;
-     left: -14px;
+    position: absolute;
+    top: 0;
+    left: -15px;
+    content: '';
+    display: block;
+    width: 15px;
+    height: 52px;
+    background: url(images/arrow-menu-left-bg.png);
  }
 
 .menu li a::before {
-    float: right;
+    position: absolute;
+    top: 0;
+    right: -14px;
     content: '';
     display: block;
     width: 14px;
     height: 52px;
-    background: url(images/arrow-right-bg.png);
-    position: relative;
-    right: -14px;
+    background: url(images/arrow-menu-right-bg.png);
 }
 
-.menu li a:hover {
-    background: url(images/arrow-bg-hover.png);
+.menu li a:hover,
+.menu li a.active {
+    background: url(images/arrow-menu-bg-hover.png);
 }
 
-.menu li a:hover::before {
-     background: url(images/arrow-right-bg-hover.png);
+.menu li a:hover::before,
+.menu li a.active::before{
+     background: url(images/arrow-menu-right-bg-hover.png);
 }
 
-.menu li a:hover::after {
-    background: url(images/arrow-left-bg-hover.png);
+.menu li a:hover::after,
+.menu li a.active::after {
+    background: url(images/arrow-menu-left-bg-hover.png);
 }
 
 .menu li ul li {
@@ -238,8 +242,11 @@
     margin-bottom: 85px;
 }
 
-.gallery {
+.gallery-container {
+    position: relative;
+}
 
+.gallery {
 }
 
 .gallery ul {
@@ -287,13 +294,13 @@
 }
 
 .gallery-prev {
-    bottom: 200px;
-    right: 18px;
+    top:43%;
+    right: 5px;
 }
 
 .gallery-next {
-    bottom: 200px;
-    left: 18px;
+    top:43%;
+    left: 5px;
 }
 
 .parties ul {
