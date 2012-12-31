@@ -25,6 +25,16 @@
 
         <div class="inner-frame">
 
+            <div class="parties">
+                {@content}
+                <ul>
+                    {#items}
+                    <li>{title}</li>
+                    {/items}
+                </ul>
+                {/content}
+            </div>
+
         </div>
     </div>
 </div>

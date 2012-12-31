@@ -24,14 +24,27 @@
                 '</div>'
         });
 
-        $('.gallery a').on('click', function(e){
+        $.postJSON('/youtube/feeds', {author: 'ynet', 'max-results': 12, 'start-index': 1}, function(data){
+            dust.render('gallery', data, function(err, html){
+                $('.gallery').append(html).find('li:first a').click();
+            })
+        });
+
+        $('.gallery').on('click', 'a', function(e){
             e.preventDefault();
+
+            $('.gallery a.active').removeClass('active');
+            $(this).addClass('active');
 
             $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/'+ $(this).data('id') +'" frameborder="0" allowfullscreen></iframe>')
 
         });
 
-        if($('.gallery')) $('.gallery li:first a').click();
+        $('.parties ul').roundabout({
+            shape: 'lazySusan'
+        });
+
+        //if($('.gallery')) $('.gallery li:first a').click();
 
     })
 })(jQuery);

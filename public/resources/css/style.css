@@ -219,6 +219,7 @@
 }
 
 .inner-frame {
+    position: relative;
     background: url(images/bg.png);
     min-height: 580px;
     -webkit-box-shadow: inset 0px 0px 60px 0px #000,
@@ -260,8 +261,13 @@
     color: black;
     text-decoration: none;
 }
+
 .gallery ul li a img {
     border: 2px solid #808080;
+}
+
+.gallery ul li a.active img {
+    border: 2px solid red;
 }
 
 .gallery ul li h2 {
@@ -271,6 +277,36 @@
 
 .gallery ul li div {
     font-size: 12px;
+}
+
+.gallery-prev,
+.gallery-next {
+    position: absolute;
+    display: block;
+    text-decoration: none;
+}
+
+.gallery-prev {
+    bottom: 200px;
+    right: 18px;
+}
+
+.gallery-next {
+    bottom: 200px;
+    left: 18px;
+}
+
+.parties ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.parties ul li {
+    width: 100px;
+    height: 100px;
+    color: white;
+    background: black;
 }
 .clear {
     clear: both;

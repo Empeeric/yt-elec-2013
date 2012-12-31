@@ -142,6 +142,14 @@ module.exports = function(app){
         /*youtube.user('ynet').playlists(function(err, json){
             res.json(err || json);
         })*/
+    });
+
+    app.post('/youtube/feeds', function(req, res){
+        var youtube = require('youtube-feeds');
+
+        youtube.feeds.videos(req.body, function(data){
+            res.json(data);
+        });
     })
 
 };
