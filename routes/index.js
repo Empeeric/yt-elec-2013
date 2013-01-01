@@ -165,6 +165,17 @@ module.exports = function(app){
         youtube.feeds.videos(req.body, function(data){
             res.json(data);
         });
+    });
+
+    app.get('/google/news', [config], function(req, res){
+        var request = require('request');
+        request(req.config.news_rss, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                res.type('xml');
+                res.send(body);
+
+            }
+        })
     })
 
 };

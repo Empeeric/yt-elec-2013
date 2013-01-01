@@ -408,6 +408,35 @@
     height: 298px;
 }
 
+.news-ticker div {
+    position: relative;
+}
+
+.news-ticker ul {
+    right: 10px;
+    top: 5px;
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    overflow: hidden;
+}
+
+.news-ticker ul li {
+    float: none;
+    height: 25px;
+    line-height: 25px;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #333;
+}
+
+.news-ticker ul li a {
+    color: #333;
+    text-decoration: none;
+}
+
 .clear {
     clear: both;
 }

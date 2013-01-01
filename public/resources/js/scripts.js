@@ -108,4 +108,33 @@
 })(jQuery);
 
 
+(function($){
+
+    $.get('/google/news', function(doc, status){
+        var news = [];
+        $(doc).find('item').each(function(){
+            var o = {
+                title: $(this).find('title').text(),
+                url: $(this).find('link').text()
+            };
+
+            news.push(o);
+        });
+
+        $(function(){
+
+            dust.render('news', news, function(err, html){
+                $('.news-ticker div').append(html);
+            });
+
+            //news ticker
+            setInterval(function(){
+                $('.news-ticker li:first').slideUp( function () { $(this).appendTo($('.news-ticker ul')).slideDown(); });
+            }, 5000);
+        });
+
+    })
+})(jQuery);
+
+
 
