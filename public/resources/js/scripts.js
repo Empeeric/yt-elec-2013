@@ -46,6 +46,7 @@
             btnNext: '.parties-next',
             btnPrev: '.parties-prev'
         }, function(){
+            $('.parties').show();
             $('.party_text').html($('.parties li:first').find('div').html());
         });
 

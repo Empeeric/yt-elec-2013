@@ -320,6 +320,7 @@
     width: 750px;
     margin: auto;
     margin-bottom: 50px;
+    display: none;
 }
 
 .parties-next,
