@@ -16,6 +16,22 @@ dust.helpers['cloudinary'] = function (chunk, context, bodies, params) {
     )
 };
 
+dust.helpers['landing'] = function(chunk, context, bodies, params){
+    return chunk.map(function(chunk) {
+    models
+        .navigation
+        .findOne()
+        .where('show', true)
+        .where('menu', true)
+        .where('parent', context.get('page')._id)
+        .sort({order: 1})
+        .exec(function(err, sub){
+            chunk.write(sub.url);
+            chunk.end();
+        });
+    });
+};
+
 dust.helpers['feeds'] = function(chunk, context, bodies, params) {
     return chunk.map(function(chunk) {
 
