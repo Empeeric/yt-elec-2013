@@ -1,5 +1,7 @@
 (function($){
-    var electionDate = new Date("Tue, 22 Jan 2013 22:00:00 GMT");
+    $('a[href="'+ decodeURIComponent(location.pathname) +'"]').addClass('active');
+
+    var electionDate = new Date("Tue, 22 Jan 2013 05:00:00 GMT");
 
     $(function(){
         //init the timer
@@ -24,12 +26,19 @@
                 '</div>'
         });
 
-        var $sub_menu = $('.menu ul ul li'),
+        var $sub_menu_tree = $('.menu ul ul'),
+            $sub_menu_copy =$sub_menu_tree.clone(),
+            $sub_menu = $sub_menu_copy.find('li');
             top_zindex = $sub_menu.length;
+
+        $sub_menu_tree.remove();
+        $('.menu').append($sub_menu_copy);
 
         $sub_menu.each(function(){
            $(this).css('z-index', top_zindex--);
         });
+
+        $sub_menu_copy.show();
 
         $('.parties ul').roundabout({
             tilt: -4,
@@ -58,45 +67,6 @@
                 $('<img/>').attr('src', $(self).data('history'))
             );
         });
-
-        var v = new Videos();
-
-        v.json = {author: 'ynet'};
-
-        var render_gallery = function(select){
-            v.feeds().done(function(){
-                dust.render('gallery', v.data, function(err, html){
-                    $('.gallery').html(html);
-                    if(select)
-                        $('.gallery li:first a').click();
-                })
-            })
-        };
-
-        $('.gallery').on('click', 'a', function(e){
-            e.preventDefault();
-
-            $('.gallery a.active').removeClass('active');
-            $(this).addClass('active');
-
-            $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/'+ $(this).data('id') +'" frameborder="0" allowfullscreen></iframe>')
-        });
-
-        $('.gallery-prev').on('click', function(e){
-            e.preventDefault();
-
-            v.prev();
-            render_gallery();
-        });
-
-        $('.gallery-next').on('click', function(e){
-            e.preventDefault();
-
-            v.next();
-            render_gallery();
-        });
-
-        render_gallery(true);
     })
 })(jQuery);
 
@@ -113,7 +83,9 @@
     Videos.prototype.feeds = function(){
         var self = this;
 
-        var json = $.extend(self.json, {'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1});
+        var json = $.extend({'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1}, self.json);
+
+        console.log('JSON', json);
 
         return $.postJSON('/youtube/feeds', json , function(data){
             self.total_items = data.totalItems;

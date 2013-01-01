@@ -24,11 +24,30 @@
         </div>
 
         <div class="inner-frame">
-            {>"partials/domestic.html"/}
+            <div class="player">
+            </div>
+
+            <div class="gallery-container">
+                <div class="gallery">
+                </div>
+
+                <div class="clear"></div>
+
+                <a class="gallery-prev sprite-all-nav-arrow-right" href="javascript:;"></a>
+                <a class="gallery-next sprite-all-nav-arrow-left" href="javascript:;"></a>
+            </div>
         </div>
     </div>
 </div>
 
+
+
 {>"partials/scripts.html"/}
+
+<script type="text/javascript">
+    var channel = {channel|s|js};
+</script>
+
+<script type="text/javascript" src="resources/js/channel.js"></script>
 </body>
 </html>

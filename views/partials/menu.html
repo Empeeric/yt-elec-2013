@@ -3,7 +3,7 @@
         {?.child}
             <li><a href="{?url}{url}{:else}?id={id}{/url}" {?dock}class="active"{/dock}>{title}</a>
                 {?dock}
-                <ul>
+                <ul class="sub-menu">
                     {#child}
                     <li><a href="{url}">{title}</a></li>
                     {/child}

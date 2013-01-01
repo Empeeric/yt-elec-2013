@@ -67,6 +67,20 @@ var crumbs = function(req, res, next){
     else next();
 };
 
+var channel = function(req, res, next){
+    if(req.page){
+        models
+            .channels
+            .findOne()
+            .where('navigation', req.page._id)
+            .exec(function(err, channel){
+                if(channel) req.channel = channel;
+
+                next();
+            })
+    }else next();
+};
+
 module.exports = function(app){
     models
         .redirect
@@ -91,7 +105,7 @@ module.exports = function(app){
     });
 
     //cms rules
-    app.get('*', [config, page, crumbs], function(req, res, next){
+    app.get('*', [config, page, crumbs, channel], function(req, res, next){
         if(req.page){
             var o = {};
             o.page = req.page;
@@ -99,6 +113,7 @@ module.exports = function(app){
 
             o.config = req.config || {};
             o.crumbs = req.crumbs || {};
+            o.channel = req.channel || {};
 
             res.locals.development = app.get('env') == "development";
             res.render(req.page.template.title, o);

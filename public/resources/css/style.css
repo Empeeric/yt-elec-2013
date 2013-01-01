@@ -6,6 +6,7 @@
 }
 
 .menu {
+    position: relative;
     height: 52px;
     background: url(images/menu-bg.png);
 }
@@ -128,20 +129,22 @@
     background: url(images/arrow-menu-left-bg-hover.png);
 }
 
-.menu li ul li {
-    margin: 0;
-    margin-left: -4px;
-}
-
-.menu li ul {
+.menu ul.sub-menu {
     width: 970px;
     position: absolute;
     border-top: 2px solid #7b7b7b;
     border-bottom: 2px solid #7b7b7b;
-    right: -28px;
+    right: -14px;
+    top: 52px;
+    display: none;
 }
 
-.menu li ul a {
+.menu ul.sub-menu li {
+    margin: 0;
+    margin-left: -4px;
+}
+
+.menu ul.sub-menu a {
     color: #000000;
     height: 37px;
     line-height: 37px;
@@ -149,19 +152,20 @@
     padding: 0 30px;
 }
 
-.menu li ul a::before {
+.menu ul.sub-menu a::before {
     background: none;
     height: 37px;
     width: 0;
 }
 
-.menu li ul a::after {
+.menu ul.sub-menu a::after {
     background: none;
     height: 37px;
     width: 0;
 }
 
-.menu li ul a:hover {
+.menu ul.sub-menu a:hover,
+.menu ul.sub-menu a.active {
     background: url(images/sub-menu-hover-bg.png);
 }
 
@@ -263,11 +267,14 @@
 
 .gallery ul li h2 {
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
 }
 
 .gallery ul li div {
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .gallery-prev,
