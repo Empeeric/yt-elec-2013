@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "heroku_app10154408.channels", "name" : "_id_" }, { "v" : 1, "key" : { "navigation" : 1 }, "unique" : true, "ns" : "heroku_app10154408.channels", "name" : "navigation_1", "background" : true, "safe" : true } ] }
