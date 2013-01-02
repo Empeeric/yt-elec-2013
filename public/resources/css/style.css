@@ -373,40 +373,90 @@
     display: none;
 }
 
-.trends-right {
-    float: right;
-    margin-right: 10px;
-}
-
-.trends-right h2,
-.trends h2 {
-    font-size: 16px;
-}
-
 .trends {
-    float: left;
-    margin-left: 10px;
 }
 
-.trends ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.trends ul li {
-    height: 66px;
-    margin-bottom: 10px;
-}
+.trends h2 {font-size: 16px; text-align: center;}
 
 .trend {
     width: 422px;
     height: 298px;
     background: white;
+    margin: 10px auto 35px auto;
 }
+
+.trends-container {
+    position: relative;
+}
+
+.trends-container ul {
+    position: relative;
+    right: 40px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.trends-container ul li {
+    width: 120px;
+    height: 94px;
+    float: right;
+    margin: 0 10px 20px 10px;
+}
+
+.trends-container ul li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+.trends-container ul li a img {
+    border: 2px solid #808080;
+}
+
+.trends-container ul li a.active img {
+    border: 2px solid red;
+}
+
+.trends-container ul li h2 {
+    margin: 0;
+    font-size: 12px;
+    line-height: 16px;
+    height: 32px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.trends-prev,
+.trends-next {
+    position: absolute;
+    display: block;
+    text-decoration: none;
+}
+
+.trends-prev {
+    top:22%;
+    right: 5px;
+}
+
+.trends-next {
+    top:22%;
+    left: 5px;
+}
+
+.history-results {
+    position: relative;
+}
+
+.history-results h2 {
+    font-size: 16px; text-align: center;
+}
+
 .map {
-    width: 420px;
-    height: 298px;
+    width: 640px;
+    height: 480px;
+    margin: auto;
 }
 
 .news-ticker div {

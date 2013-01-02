@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
 var trendsSchema = new Schema({
     title: { type: String, required: true },
     picture: { type: Schema.Types.Picture },
-    history_picture: { type: Schema.Types.Picture },
     order: { type: Number, editable: false },
     show: { type: Boolean, 'default': true }
 });

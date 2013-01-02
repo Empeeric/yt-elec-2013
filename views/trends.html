@@ -25,25 +25,29 @@
         </div>
 
         <div class="inner-frame">
-            <div class="trends-right">
-                <h2>{config.prev_elections}</h2>
-                <div class="map" id="map"></div>
-            </div>
-
             <div class="trends">
                 <h2>{config.trends}</h2>
                 <div class="trend">
                 </div>
 
-                <h2>{config.old_trends}</h2>
 
-                <ul>
+                <div class="trends-container">
+                    <ul>
+                        {@trends}
+                        <li>
+                            <a href="{@cloudinary path="picture" width="422" height="298" crop="fill" /}">
+                            <img src="{@cloudinary path="picture" width="120" height="90" crop="thumb" /}" alt="">
+                            <h2>{title}</h2>
+                            </a>
+                        </li>
+                        {/trends}
+                    </ul>
 
-                {@trends}
-                    <li data-picture="{@cloudinary path="picture" width="422" height="298" crop="fill" /}" data-history="{@cloudinary path="history_picture" width="422" height="66" crop="fill" /}"></li>
-                {/trends}
+                    <div class="clear"></div>
 
-                </ul>
+                    <a class="trends-prev sprite-all-nav-arrow-right" href="javascript:;"></a>
+                    <a class="trends-next sprite-all-nav-arrow-left" href="javascript:;"></a>
+                </div>
             </div>
 
             <div class="clear"></div>
@@ -52,9 +56,6 @@
 </div>
 
 {>"partials/scripts.html"/}
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="resources/js/map.js">
-
-</script>
+<script type="text/javascript" src="resources/js/trends.js"></script>
 </body>
 </html>

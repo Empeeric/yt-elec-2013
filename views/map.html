@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {>"partials/head.html"/}
+
+</head>
+<body>
+<div class="container">
+    <div class="menu">
+        {>"partials/timer.html"/}
+
+        {>"partials/menu.html"/}
+    </div>
+
+    <div class="frame">
+        <div class="top-frame">
+            <ul>
+                <li class="sprite-all-google-news"></li>
+                <li class="news-ticker">
+                    {>"partials/ticker.html"/}
+                </li>
+                <li class="sprite-all-youtube"></li>
+                <li class="sprite-all-ynet"></li>
+            </ul>
+        </div>
+
+        <div class="inner-frame">
+            <div class="history-results">
+                <h2>{config.prev_elections}</h2>
+                <div class="map" id="map"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{>"partials/scripts.html"/}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="resources/js/map.js">
+
+</script>
+</body>
+</html>
