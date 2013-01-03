@@ -1,3 +1,5 @@
+window.console || (window.console = {log: function(){}});
+
 (function($){
     $('a[href="'+ decodeURIComponent(location.pathname) +'"]').addClass('active');
 
