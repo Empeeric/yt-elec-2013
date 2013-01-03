@@ -5,16 +5,10 @@
     font-family: Arial, sans-serif;
 }
 
-.menu {
-    position: relative;
-    height: 52px;
-    background: url(images/menu-bg.png);
-}
-
 .timer {
     position: relative;
     top: 2px;
-    margin-left: 10px;
+    margin-left: 20px;
     float: left;
     height: 45px;
     background: url(images/ticker-bg.png);
@@ -26,7 +20,7 @@
     text-align: center;
     font-size: 12px;
     font-weight: bold;
-    line-height: 3px;
+    line-height: 12px;
 }
 
 .timer div.month {
@@ -39,9 +33,9 @@
 }
 
 .timer div.digit {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: bold;
-    line-height: 30px;
+    line-height: 26px;
 }
 
 .timer div.divider {
@@ -50,25 +44,39 @@
     line-height: 30px;
 }
 
-.timer div br {
+.timer div p {
+    position: relative;
+    top: -5px;
     clear: both;
+    margin: 0;
+    padding: 0;
 }
-.timer:before {
-    float: left;
+.timer span.after {
+    position: absolute;
     display: block;
     content: '';
     width: 10px;
     height: 45px;
+    top: 0;
+    left: -10px;
     background: url(images/ticekr-left.png);
 }
 
-.timer:after {
-    float: right;
+.timer span.before {
+    position: absolute;
     display: block;
     content: '';
     width: 10px;
     height: 45px;
+    top: 0;
+    right: -10px;
     background: url(images/ticker-right-bg.png);
+}
+
+.menu {
+    position: relative;
+    height: 52px;
+    background: url(images/menu-bg.png);
 }
 
 .menu ul {
@@ -95,7 +103,7 @@
     padding: 0 15px;
 }
 
-.menu li a::after {
+.menu li a span.after {
     position: absolute;
     top: 0;
     left: -15px;
@@ -106,7 +114,7 @@
     background: url(images/arrow-menu-left-bg.png);
  }
 
-.menu li a::before {
+.menu li a span.before {
     position: absolute;
     top: 0;
     right: -14px;
@@ -122,13 +130,13 @@
     background: url(images/arrow-menu-bg-hover.png);
 }
 
-.menu li a:hover::before,
-.menu li a.active::before{
+.menu li a:hover span.before,
+.menu li a.active span.before{
      background: url(images/arrow-menu-right-bg-hover.png);
 }
 
-.menu li a:hover::after,
-.menu li a.active::after {
+.menu li a:hover span.after,
+.menu li a.active span.after {
     background: url(images/arrow-menu-left-bg-hover.png);
 }
 

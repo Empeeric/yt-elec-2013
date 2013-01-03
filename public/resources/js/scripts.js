@@ -8,22 +8,24 @@
         $('#timer').countdown({until:electionDate,
             layout: '<div class="month">' +
                 '<div class="digit">{dn}</div>' +
-                '<br>{dl}' +
+                '<p>{dl}</p>' +
                 '</div>' +
                 '<div>' +
                 '<div class="digit">{hnn}</div>' +
-                '<br>{hl}' +
+                '<p>{hl}</p>' +
                 '</div>' +
                 '<div class="divider">:</div>' +
                 '<div>' +
                 '<div class="digit">{mnn}</div>' +
-                '<br>{ml}' +
+                '<p>{ml}</p>' +
                 '</div>' +
                 '<div class="divider">:</div>' +
                 '<div class="seconds">' +
                 '<div class="digit">{snn}</div>' +
-                '<br>{sl}' +
-                '</div>'
+                '<p>{sl}</p>' +
+                '</div>' +
+                '<span class="before"></span>' +
+                '<span class="after"></span>'
         });
 
         var $sub_menu_tree = $('.menu ul ul'),
