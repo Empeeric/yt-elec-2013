@@ -50,6 +50,9 @@
     line-height: 30px;
 }
 
+.timer div br {
+    clear: both;
+}
 .timer:before {
     float: left;
     display: block;
