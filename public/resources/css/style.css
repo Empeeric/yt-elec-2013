@@ -205,12 +205,13 @@
 }
 
 .top-frame li.news-ticker div {
-    background: white;
+    background: #cccccc;
     box-shadow: inset 2px 2px 8px #999999;
     border-radius: 6px;
     width: 495px;
     height: 33px;
     margin-top: 15px;
+    font-weight: bold;
 }
 
 .inner-frame {
