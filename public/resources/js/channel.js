@@ -15,9 +15,12 @@
             v.feeds().done(function () {
                 dust.render('gallery', v.data, function (err, html) {
                     $('#circularG').remove();
-                    $('.gallery').html(html);
-                    if (select)
-                        $('.gallery li:first a').click();
+                    $('.gallery').fadeOut('fast', function(){
+                        $('.gallery').html(html).fadeIn('fast', function(){
+                            if (select)
+                                $('.gallery li:first a').click();
+                        });
+                    });
                 })
             })
         };

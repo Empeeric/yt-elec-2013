@@ -19,9 +19,12 @@
                 dust.render('trends', v.data, function (err, html) {
                     $('#circularG').remove();
 
-                    $('.trends ul').html(html);
-                    if (select)
-                        $('.trends li:first a').click();
+                    $('.trends ul').fadeOut('fast', function(){
+                        $('.trends ul').html(html).fadeIn('fast', function(){
+                            if (select)
+                                $('.trends li:first a').click();
+                        });
+                    });
                 })
             })
         };
