@@ -503,3 +503,11 @@ h3 {font-size: 16px; text-align: center;}
 .clear {
     clear: both;
 }
+
+#shirshurim  {
+    direction: ltr;
+    position: relative;
+    height: 0;
+    top: 9px;
+    left: 10px;
+}
