@@ -1,22 +1,54 @@
-(function ($) {
-    setTimeout(function() {
-        $('.trends-container ul li:first a').click()
-    }, 0);
+(function($){
+    $(function () {
+        $.cloudinary.config("cloud_name", "hkf5hrwto");
 
-    $('.trends-container ul li a').on('click', function (e) {
-        e.preventDefault();
+        var v = new Trends();
 
-        $('.trends-container a.active').removeClass('active');
-        $(this).addClass('active');
+        var render_trends_gallery = function (select) {
+            dust.render('spinner', {}, function (err, html) {
+                $('.trends-container').append(html);
+            });
 
-        $('.trend').html('<img src="' + $(this).attr('href') + '" />')
-    });
+            v.content().done(function () {
+                $.each(v.data.items, function(i, item){
+                    item.picture && (item.picture.url = $.cloudinary.url(item.picture.public_id + '.' + item.picture.format,
+                        { width: 120, height: 90,
+                            crop: 'thumb'}));
+                });
 
-    $('.gallery-prev').on('click', function (e) {
-        e.preventDefault();
-    });
+                dust.render('trends', v.data, function (err, html) {
+                    $('#circularG').remove();
 
-    $('.gallery-next').on('click', function (e) {
-        e.preventDefault();
-    });
+                    $('.trends ul').html(html);
+                    if (select)
+                        $('.trends li:first a').click();
+                })
+            })
+        };
+
+        $('.trends ul').on('click', 'a', function (e) {
+            e.preventDefault();
+
+            $('.trends a.active').removeClass('active');
+            $(this).addClass('active');
+
+            if($(this).data('picture')) $('.trend').html('<img src="' + $.cloudinary.url($(this).data('picture'), { width: 640, height: 480, crop: 'limit'}) + '">');
+        });
+
+        $('.trends-prev').on('click', function (e) {
+            e.preventDefault();
+
+            v.prev();
+            render_trends_gallery();
+        });
+
+        $('.trends-next').on('click', function (e) {
+            e.preventDefault();
+
+            v.next();
+            render_trends_gallery();
+        });
+
+        render_trends_gallery(true);
+    })
 })(jQuery);

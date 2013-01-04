@@ -786,10 +786,10 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
 h3 {font-size: 16px; text-align: center;}
 
 .trend {
-    width: 620px;
+    width: 640px;
     height: 480px;
-    background: white;
     margin: 10px auto 35px auto;
+    text-align: center;
 }
 
 .trends-container {
@@ -897,6 +897,170 @@ h3 {font-size: 16px; text-align: center;}
 
 .clear {
     clear: both;
+}
+
+#circularG{
+    position:absolute;
+    top: 40%;
+    left: 48%;
+    width:50px;
+    height:50px}
+
+.circularG{
+    position:absolute;
+    background-color:#cc0000;
+    width:11px;
+    height:11px;
+    -moz-border-radius:8px;
+    -moz-animation-name:bounce_circularG;
+    -moz-animation-duration:0.32s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-direction:linear;
+    -webkit-border-radius:8px;
+    -webkit-animation-name:bounce_circularG;
+    -webkit-animation-duration:0.32s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-direction:linear;
+    -ms-border-radius:8px;
+    -ms-animation-name:bounce_circularG;
+    -ms-animation-duration:0.32s;
+    -ms-animation-iteration-count:infinite;
+    -ms-animation-direction:linear;
+    -o-border-radius:8px;
+    -o-animation-name:bounce_circularG;
+    -o-animation-duration:0.32s;
+    -o-animation-iteration-count:infinite;
+    -o-animation-direction:linear;
+    border-radius:8px;
+    animation-name:bounce_circularG;
+    animation-duration:0.32s;
+    animation-iteration-count:infinite;
+    animation-direction:linear;
+}
+
+#circularG_1{
+    left:0;
+    top:20px;
+    -moz-animation-delay:0.12s;
+    -webkit-animation-delay:0.12s;
+    -ms-animation-delay:0.12s;
+    -o-animation-delay:0.12s;
+    animation-delay:0.12s;
+}
+
+#circularG_2{
+    left:5px;
+    top:5px;
+    -moz-animation-delay:0.16s;
+    -webkit-animation-delay:0.16s;
+    -ms-animation-delay:0.16s;
+    -o-animation-delay:0.16s;
+    animation-delay:0.16s;
+}
+
+#circularG_3{
+    top:0;
+    left:20px;
+    -moz-animation-delay:0.2s;
+    -webkit-animation-delay:0.2s;
+    -ms-animation-delay:0.2s;
+    -o-animation-delay:0.2s;
+    animation-delay:0.2s;
+}
+
+#circularG_4{
+    right:5px;
+    top:5px;
+    -moz-animation-delay:0.24s;
+    -webkit-animation-delay:0.24s;
+    -ms-animation-delay:0.24s;
+    -o-animation-delay:0.24s;
+    animation-delay:0.24s;
+}
+
+#circularG_5{
+    right:0;
+    top:20px;
+    -moz-animation-delay:0.28s;
+    -webkit-animation-delay:0.28s;
+    -ms-animation-delay:0.28s;
+    -o-animation-delay:0.28s;
+    animation-delay:0.28s;
+}
+
+#circularG_6{
+    right:5px;
+    bottom:5px;
+    -moz-animation-delay:0.32s;
+    -webkit-animation-delay:0.32s;
+    -ms-animation-delay:0.32s;
+    -o-animation-delay:0.32s;
+    animation-delay:0.32s;
+}
+
+#circularG_7{
+    left:20px;
+    bottom:0;
+    -moz-animation-delay:0.36s;
+    -webkit-animation-delay:0.36s;
+    -ms-animation-delay:0.36s;
+    -o-animation-delay:0.36s;
+    animation-delay:0.36s;
+}
+
+#circularG_8{
+    left:5px;
+    bottom:5px;
+    -moz-animation-delay:0.4s;
+    -webkit-animation-delay:0.4s;
+    -ms-animation-delay:0.4s;
+    -o-animation-delay:0.4s;
+    animation-delay:0.4s;
+}
+
+@-moz-keyframes bounce_circularG{
+    0%{
+        -moz-transform:scale(1)}
+
+    100%{
+        -moz-transform:scale(.3)}
+
+}
+
+@-webkit-keyframes bounce_circularG{
+    0%{
+        -webkit-transform:scale(1)}
+
+    100%{
+        -webkit-transform:scale(.3)}
+
+}
+
+@-ms-keyframes bounce_circularG{
+0%{
+-ms-transform:scale(1)}
+
+100%{
+-ms-transform:scale(.3)}
+
+}
+
+@-o-keyframes bounce_circularG{
+    0%{
+        -o-transform:scale(1)}
+
+    100%{
+        -o-transform:scale(.3)}
+
+}
+
+@keyframes bounce_circularG{
+    0%{
+        transform:scale(1)}
+
+    100%{
+        transform:scale(.3)}
+
 }
 
 #shirshurim  {

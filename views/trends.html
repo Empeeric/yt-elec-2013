@@ -28,14 +28,6 @@
 
                 <div class="trends-container">
                     <ul>
-                        {@trends}
-                        <li>
-                            <a href="{@cloudinary path="picture" width="620" height="480" crop="fill" /}">
-                            <img src="{@cloudinary path="picture" width="120" height="90" crop="thumb" /}" alt="">
-                            <h2>{title}</h2>
-                            </a>
-                        </li>
-                        {/trends}
                     </ul>
 
                     <div class="clear"></div>
@@ -51,6 +43,7 @@
 </div>
 
 {>"partials/scripts.html"/}
+<script type="text/javascript" src="resources/js/jquery.cloudinary.js"></script>
 <script type="text/javascript" src="resources/js/trends.js"></script>
 </body>
 </html>

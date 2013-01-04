@@ -129,6 +129,42 @@ window.console || (window.console = {log: function(){}});
 })(jQuery);
 
 (function($){
+    var Trends = window.Trends = function(){
+        this.data = {};
+        this.json = {};
+        this.page = 1;
+        this.pages = 0;
+        this.items_per_page = 6;
+        this.total_items = 0;
+    };
+
+    Trends.prototype.content = function(){
+        var self = this;
+
+        var json = $.extend({'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1}, self.json);
+
+        return $.postJSON('/trends', json , function(data){
+            self.total_items = data.totalItems;
+            self.pages = Math.ceil(self.total_items / self.items_per_page);
+
+            console.log(self.pages);
+
+            self.data = data;
+        });
+    };
+
+    Trends.prototype.next = function(){
+        this.page++;
+        if(this.page > this.pages) this.page = 1;
+    };
+
+    Trends.prototype.prev = function(){
+        this.page--;
+        if(this.page <= 0) this.page = this.pages;
+    };
+})(jQuery);
+
+(function($){
 
     $.get('/google/news', function(doc, status){
         var news = [];

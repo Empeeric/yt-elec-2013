@@ -8,8 +8,13 @@
         v.json = channel;
 
         var render_gallery = function (select) {
+            dust.render('spinner', {}, function (err, html) {
+                $('.gallery-container').append(html);
+            });
+
             v.feeds().done(function () {
                 dust.render('gallery', v.data, function (err, html) {
+                    $('#circularG').remove();
                     $('.gallery').html(html);
                     if (select)
                         $('.gallery li:first a').click();
