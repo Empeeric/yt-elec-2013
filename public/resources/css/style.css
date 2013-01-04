@@ -794,6 +794,7 @@ h3 {font-size: 16px; text-align: center;}
 
 .trends-container {
     position: relative;
+    min-height: 120px;
 }
 
 .trends-container ul {
