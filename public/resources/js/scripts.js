@@ -75,8 +75,6 @@ window.console || (window.console = {log: function(){}});
 
         var json = $.extend({'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1}, self.json);
 
-        console.log('JSON', json);
-
         return $.postJSON('/youtube/feeds', json , function(data){
             self.total_items = data.totalItems;
             self.pages = Math.ceil(self.total_items / self.items_per_page);
@@ -96,6 +94,39 @@ window.console || (window.console = {log: function(){}});
     };
 })(jQuery);
 
+(function($){
+    var Users = window.Users = function(){
+        this.data = {};
+        this.json = {};
+        this.page = 1;
+        this.pages = 0;
+        this.items_per_page = 12;
+        this.total_items = 0;
+    };
+
+    Users.prototype.content = function(){
+        var self = this;
+
+        var json = $.extend({'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1}, self.json);
+
+        return $.postJSON('/users/content', json , function(data){
+            self.total_items = data.totalItems;
+            self.pages = Math.ceil(self.total_items / self.items_per_page);
+
+            self.data = data;
+        });
+    };
+
+    Users.prototype.next = function(){
+        this.page++;
+        if(this.page > this.pages) this.page = 1;
+    };
+
+    Users.prototype.prev = function(){
+        this.page--;
+        if(this.page <= 0) this.page = this.pages;
+    };
+})(jQuery);
 
 (function($){
 

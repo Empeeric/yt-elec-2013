@@ -167,6 +167,21 @@ module.exports = function(app){
         });
     });
 
+    app.all('/users/content', function(req, res){
+        req.body['start-index'] || (req.body['start-index'] = 1);
+        req.body['max-results'] || (req.body['max-results'] = 12);
+
+        models
+            .users_content
+            .where('show', 1)
+            .sort({order: -1})
+            .skip(req.body['start-index'] - 1)
+            .limit(req.body['max-results'])
+            .exec(function(err, content){
+                res.json({items: content});
+            })
+    });
+
     app.get('/google/news', [config], function(req, res){
         var request = require('request');
         request(req.config.news_rss, function (error, response, body) {
