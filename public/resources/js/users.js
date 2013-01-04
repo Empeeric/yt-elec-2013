@@ -26,7 +26,7 @@
             $(this).addClass('active');
 
             if($(this).data('youtube')) $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/' + $(this).data('youtube') + '" frameborder="0" allowfullscreen></iframe>');
-            if($(this).data('picture')) $('.player').html('<img src="' + $.cloudinary.url($(this).data('picture'), { width: 640, height: 370, crop: 'pad'}) + '">');
+            if($(this).data('picture')) $('.player').html('<img src="' + $.cloudinary.url($(this).data('picture'), { width: 640, height: 370, crop: 'limit'}) + '">');
         });
 
         $('.gallery-prev').on('click', function (e) {

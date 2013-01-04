@@ -237,10 +237,10 @@
 .player {
     width: 640px;
     height: 370px;
-    background: black;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 35px;
+    text-align: center;
 }
 
 .gallery-container {
