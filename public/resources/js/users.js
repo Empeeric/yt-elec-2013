@@ -38,6 +38,14 @@
             if($(this).data('picture')) $('.player').html('<img src="' + $.cloudinary.url($(this).data('picture'), { width: 640, height: 370, crop: 'limit'}) + '">');
         });
 
+
+        $('.gallery').on('click', 'li b', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open($(this).closest('a').attr("href"));
+        });
+
         $('.gallery-prev').on('click', function (e) {
             e.preventDefault();
 

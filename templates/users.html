@@ -5,7 +5,7 @@
         <a href="http://www.youtube.com/watch?v={youtube_video_id}" data-youtube="{youtube_video_id}">
             <img src="http://img.youtube.com/vi/{youtube_video_id}/2.jpg" alt="{title}">
         {:else}
-        <a href="{#picture}{url}{/picture}" data-picture="{#picture}{public_id}.{format}{/picture}">
+        <a href="{uploader_link}" data-picture="{#picture}{public_id}.{format}{/picture}">
             <img src="{#picture}{url}{/picture}" alt="">
         {/youtube_video_id}
             <h2>{title}</h2>

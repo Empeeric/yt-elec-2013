@@ -685,6 +685,11 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     font-size: 11px;
 }
 
+.gallery ul li div b:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .gallery-prev,
 .gallery-next {
     position: absolute;
