@@ -15,4 +15,7 @@ npm-debug.log
 /.idea
 
 bson/
+express/
+dustjs-linkedin/
+.bin/
 
