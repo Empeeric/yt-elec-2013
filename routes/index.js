@@ -106,6 +106,8 @@ module.exports = function(app){
 
     //cms rules
     app.get('*', [config, page, crumbs, channel], function(req, res, next){
+        if(req.query.x) res.redirect(req.query.x);
+        
         if(req.page){
             var o = {};
             o.page = req.page;
