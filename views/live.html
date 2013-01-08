@@ -16,7 +16,13 @@
         </div>
 
         <div class="inner-frame">
-            <img class="fake" src="resources/css/images/24204_youtube_channel_150px_live.jpg">
+            <div class="player">
+                {?config.live_link}
+                <iframe src="{config.live_link}" width="640" height="360" frameborder="0"></iframe>
+                {:else}
+                <img src="resources/css/images/24204_youtube_channel_150px_live.jpg">
+                {/config.live_link}
+            </div>
         </div>
     </div>
 </div>
