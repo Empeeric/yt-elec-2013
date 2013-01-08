@@ -83,6 +83,19 @@ window.console || (window.console = {log: function(){}});
         });
     };
 
+    Videos.prototype.playlist = function(){
+        var self = this;
+
+        var json = $.extend({'max-results': self.items_per_page, 'start-index': ((self.page - 1) * self.items_per_page) + 1}, self.json);
+
+        return $.postJSON('/youtube/playlist', json , function(data){
+            self.total_items = data.totalItems;
+            self.pages = Math.ceil(self.total_items / self.items_per_page);
+
+            self.data = data;
+        });
+    };
+
     Videos.prototype.next = function(){
         this.page++;
         if(this.page > this.pages) this.page = 1;

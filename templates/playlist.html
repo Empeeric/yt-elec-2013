@@ -1,0 +1,11 @@
+<ul>
+    {#items}
+    <li>
+        <a href="{#video.player}{default}{/video.player}" data-id="{video.id}">
+            <img src="{#video.thumbnail}{sqDefault}{/video.thumbnail}" alt="">
+            <h2>{video.title}</h2>
+            <div>by <b>{video.uploader}</b> {video.viewCount} views</div>
+        </a>
+    </li>
+    {/items}
+</ul>

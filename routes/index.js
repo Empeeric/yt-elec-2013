@@ -107,7 +107,7 @@ module.exports = function(app){
     //cms rules
     app.get('*', [config, page, crumbs, channel], function(req, res, next){
         if(req.query.x) res.redirect(req.query.x);
-        
+
         if(req.page){
             var o = {};
             o.page = req.page;
@@ -149,19 +149,15 @@ module.exports = function(app){
         }
     });
 
-    app.get('/youtube', function(req, res){
+    app.all('/youtube/playlist', function(req, res){
         var youtube = require('youtube-feeds');
 
-        youtube.feeds.videos(req.query, function(data){
+        youtube.feeds.playlist('PLDqfvXe6qtInlwKqPktQRbPW0I2ezMWoh', req.body, function(data){
             res.json(data);
         });
-
-        /*youtube.user('ynet').playlists(function(err, json){
-            res.json(err || json);
-        })*/
     });
 
-    app.post('/youtube/feeds', function(req, res){
+    app.all('/youtube/feeds', function(req, res){
         var youtube = require('youtube-feeds');
 
         youtube.feeds.videos(req.body, function(data){
