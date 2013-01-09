@@ -1,12 +1,6 @@
 var request = require('request'),
     models = require('./models');
 
-/*console.log((2).hours());
-setInterval(function(){
-    console.log('bloop');
-}, (10).second());*/
-
-
 module.exports = function(app){
     var rss = function(){
         models
