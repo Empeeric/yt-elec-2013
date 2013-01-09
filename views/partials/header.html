@@ -5,8 +5,11 @@
     <meta charset="utf-8">
 
     <title>{page.title}</title>
-
+    {?development}
     <link rel="stylesheet" href="resources/css/style.css">
+    {:else}
+    <link rel="stylesheet" href="resources/css/build.min.css">
+    {/development}
 
     <meta property="og:title" content="{page.title}" />
     <meta property="og:site_name" content="http://www.youtube.com" />

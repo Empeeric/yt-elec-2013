@@ -1,3 +1,4 @@
+{?development}
 <script type="text/javascript" src="resources/js/json2.js"></script>
 <script type="text/javascript" src="resources/js/jquery.restjson.js"></script>
 <script type="text/javascript" src="resources/js/jquery.countdown.js"></script>
@@ -8,6 +9,9 @@
 <script type="text/javascript" src="resources/js/dust-helpers-1.1.0.js"></script>
 <script type="text/javascript" src="resources/js/compiled_templates.js"></script>
 <script type="text/javascript" src="resources/js/scripts.js"></script>
+{:else}
+<script src="resources/js/build.min.js"></script>
+{/development}
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({
     publisher: "08695e90-71f8-466b-8c5d-320812cc1294",

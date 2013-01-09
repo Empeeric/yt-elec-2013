@@ -17,5 +17,6 @@ npm-debug.log
 bson/
 express/
 dustjs-linkedin/
+grunt-contrib-mincss/
 .bin/
 
