@@ -30,6 +30,7 @@ module.exports = function(grunt) {
         }
     });
 
+    //don't forget to npm install grunt-contrib-mincss :)
     grunt.loadNpmTasks('grunt-contrib-mincss');
 
     grunt.registerTask('default', 'min mincss');
