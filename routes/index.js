@@ -203,15 +203,8 @@ module.exports = function(app){
             });
     });
 
-    app.get('/google/news', [config], function(req, res){
-        var request = require('request');
-        request(req.config.news_rss, function (error, response, body) {
-            if (!error && response.statusCode == 200) {
-                res.type('xml');
-                res.send(body);
-
-            }
-        })
+    app.get('/google/news', function(req, res){
+        res.type('xml');
+        res.send(app.get('rss'));
     })
-
 };
