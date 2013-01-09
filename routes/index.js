@@ -3,7 +3,7 @@ var models = require('../models');
 /*
  middle-wares
  */
-var config = function(req, res, next){
+var config_middleware = function(req, res, next){
     models
         .config
         .find()
@@ -105,7 +105,7 @@ module.exports = function(app){
     });
 
     //cms rules
-    app.get('*', [config, page, crumbs, channel], function(req, res, next){
+    app.get('*', [config_middleware, page, crumbs, channel], function(req, res, next){
         if(req.query.x) res.redirect(req.query.x);
 
         if(req.page){
@@ -125,7 +125,7 @@ module.exports = function(app){
 
     });
 
-    app.post('/thank-you', [config], function(req, res){
+    app.post('/thank-you', [config_middleware], function(req, res){
 
         var o = req.body,
             save = false;
