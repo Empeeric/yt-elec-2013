@@ -781,25 +781,36 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     padding: 95px 140px;
 }
 
+h3 {font-size: 16px; text-align: center;}
+
 .hide {
     display: none;
 }
 
 .trends {
+    padding: 10px 0;
 }
 
-h3 {font-size: 16px; text-align: center;}
+.trend-description {
+    width: 200px;
+    float: right;
+    margin-right: 25px;
+}
 
+.trend-description h3 {margin: 0; text-align: right;}
+.trend-description p {font-size: 14px;}
 .trend {
     width: 640px;
     height: 480px;
-    margin: 10px auto 35px auto;
-    text-align: center;
+    margin-left: 25px;
+    margin-bottom: 35px;
+    float: left;
 }
 
 .trends-container {
     position: relative;
     min-height: 120px;
+    clear: both;
 }
 
 .trends-container ul {

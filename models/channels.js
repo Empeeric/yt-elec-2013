@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
 
 var channelsSchema = new Schema({
     navigation: { type: ObjectId, ref: 'navigation', unique: true, required: true },
+    playlist: { type: String },
     author: { type: String },
     q: { type: String },
     category: { type: String },
