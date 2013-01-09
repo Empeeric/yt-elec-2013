@@ -152,7 +152,7 @@ module.exports = function(app){
     app.all('/youtube/playlist', function(req, res){
         var youtube = require('youtube-feeds');
 
-        youtube.feeds.playlist(req.body.playlist, {}, function(data){
+        youtube.feeds.playlist(req.body.playlist, req.body, function(data){
             res.json(data);
         });
     });

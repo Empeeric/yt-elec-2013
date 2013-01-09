@@ -1,11 +1,8 @@
 (function($){
     $(function () {
         var v = new Videos();
-        $.each(channel, function (key, value) {
-            if (value === null) delete channel[key];
-        });
 
-        v.json = channel;
+        v.json = {playlist: channel.playlist};
 
         var render_gallery = function (select) {
             dust.render('spinner', {}, function (err, html) {
