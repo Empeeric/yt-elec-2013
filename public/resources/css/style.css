@@ -1095,6 +1095,7 @@ h3 {font-size: 16px; text-align: center;}
 }
 
 .election-right h3 {
+    text-align: right;
     margin: 10px 0;
 }
 
