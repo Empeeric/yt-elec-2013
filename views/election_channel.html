@@ -16,10 +16,16 @@
         </div>
 
         <div class="inner-frame">
-            <h3>{config.election_channel_title}</h3>
-            <div class="player">
-                <iframe width="640" height="370" src="http://www.youtube.com/embed/{config.feature_video}" frameborder="0" allowfullscreen></iframe>
+            <div class="election-right">
+                <h3>{config.election_channel_title}</h3>
+                <p>{config.election_channel_description|s}</p>
             </div>
+            <div class="election-left">
+                <div class="player">
+                    <iframe width="640" height="370" src="http://www.youtube.com/embed/{config.feature_video}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="clear"></div>
         </div>
     </div>
 </div>
