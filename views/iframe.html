@@ -1,0 +1,27 @@
+{>"partials/header.html"/}
+<body>
+<div class="container">
+    {>"partials/title.html"/}
+
+    <div class="frame">
+        <div class="top-frame">
+            <ul>
+                <li class="sprite-all-google-news"></li>
+                <li class="news-ticker">
+                    {>"partials/ticker.html"/}
+                </li>
+                <li class="sprite-all-youtube"></li>
+                <li class="sprite-all-ynet"></li>
+            </ul>
+        </div>
+
+        <iframe class="inner-frame" frameborder="0" src="{config.maps_url}"></iframe>
+    </div>
+</div>
+
+
+
+{>"partials/scripts.html"/}
+
+</body>
+{>"partials/footer.html"/}
