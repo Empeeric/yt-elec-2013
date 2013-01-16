@@ -161,6 +161,7 @@ module.exports = function(app){
         var youtube = require('youtube-feeds');
 
         youtube.feeds.videos(req.body, function(data){
+            data.items = data.items.filter(function(obj) {return !~obj.title.indexOf('test')})
             res.json(data);
         });
     });
