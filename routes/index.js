@@ -160,8 +160,10 @@ module.exports = function(app){
     app.all('/youtube/feeds', function(req, res){
         var youtube = require('youtube-feeds');
 
-        youtube.feeds.videos(req.body, function(data){
-            data.items = data.items.filter(function(obj) {return !~obj.title.indexOf('test')})
+        var original_size = req.body['max-results'];
+        req.body['max-results'] = original_size + 4;
+        youtube.feeds.videos(req.body, function(data) {
+            data.items = data.items.filter(function(obj) {return obj.title != 'test1';}).slice(0, original_size);
             res.json(data);
         });
     });
