@@ -87,7 +87,7 @@ var channel = function(req, res, next){
 };
 
 
-module.exports = function(app){
+module.exports = function setup_module(app){
     models
         .redirect
         .find()
@@ -101,6 +101,7 @@ module.exports = function(app){
             }
         });
 
+
     app.get('/contacts', function(req, res){
         models
             .contact
@@ -110,49 +111,59 @@ module.exports = function(app){
             })
     });
 
+
     //cms rules
     app.get('*', [config_middleware, page, crumbs, channel], function(req, res, next){
-        if(req.query.x) res.redirect(req.query.x);
-
-        if(req.page){
-            var o = {};
-            o.page = req.page;
-            o.page.query = req.query;
-
-            o.config = req.config || {};
-            o.crumbs = req.crumbs || {};
-            o.channel = req.channel || {};
-
-            res.locals.development = app.get('env') == "development";
-            res.render(req.page.template.title, o);
+        if(req.query.x) {
+            res.redirect(req.query.x);
+            return;
         }
-        else
-            next();
 
+        if (!req.page) {
+            next();
+            return''
+        }
+
+        var o = {};
+        o.page = req.page;
+        o.page.query = req.query;
+        o.config = req.config || {};
+        o.crumbs = req.crumbs || {};
+        o.channel = req.channel || {};
+
+        res.locals.development = app.get('env') == "development";
+        res.render(req.page.template.title, o);
     });
 
+
     app.post('/thank-you', [config_middleware], function(req, res){
-
-        var o = req.body,
-            save = false;
-
-        Object.each(o, function(key, value){
+        var o = req.body;
+        var to_save = Object.any(o, function(key, value){
             o[key] = value.stripTags().trim();
-            if(o[key].length) save = true;
+            return (o[key].length);
         });
 
-        if(save){
-            o.req = {headers: req.headers, session: req.session, ip: req.ip};
-            o.date = Date.now();
-
-            var contact = new models.contact(o);
-
-            contact.save(function(err, doc){
-                res.json({success: (err ? false : true), message: req.config[(err ? 'contact_fail' : 'contact_success')]});
+        if (!to_save) {
+            res.json({
+                success: true,
+                message: req.config.contact_success
             });
-        }else{
-            res.json({success: true, message: req.config.contact_success});
+            return;
         }
+
+        o.req = {
+            headers: req.headers,
+            session: req.session,
+            ip: req.ip,
+            date: Date.now()
+        };
+        var contact = new models.contact(o);
+        contact.save(function (err) {
+            res.json({
+                success: !err,
+                message: req.config[(err ? 'contact_fail' : 'contact_success')]
+            });
+        });
     });
 
 
@@ -202,6 +213,7 @@ module.exports = function(app){
             });
     });
 
+
     app.post('/trends', function(req, res){
         req.body['start-index'] || (req.body['start-index'] = 1);
         req.body['max-results'] || (req.body['max-results'] = 6);
@@ -220,6 +232,7 @@ module.exports = function(app){
                 });
             });
     });
+
 
     app.get('/google/news', function(req, res){
         res.type('xml');
