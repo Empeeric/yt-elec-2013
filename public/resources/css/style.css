@@ -1124,3 +1124,15 @@ h3 {font-size: 16px; text-align: center;}
     top: 9px;
     left: 10px;
 }
+.send-us-content {
+    position: absolute;
+    top: 27px;
+    left: 10px;
+    font-size: 14px;
+    width: 220px;
+}
+
+.users-player {
+    float: right;
+    margin-right: 47px;
+}
