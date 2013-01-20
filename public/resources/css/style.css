@@ -382,7 +382,7 @@ table {
 .sprite-all-youtube,
 .sprite-all-ynet,
 .sprite-all-google-news{background-image:url('images/all2.png');background-repeat:no-repeat}
-li.sprite-all-google-news{background-position: 0 10px;width: 189px;height: 50px;}
+div.sprite-all-google-news{background-position: 0 10px;width: 189px;height: 50px;}
 li.sprite-all-youtube{background-position: 0 -50px;width: 131px;height: 52px;}
 li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
 
@@ -608,6 +608,10 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     margin-right: 17px;
 }
 
+.top-frame li.google-news {
+    width: 189px; height: 50px;
+}
+
 .top-frame li.news-ticker div {
     background: #cccccc;
     box-shadow: inset 2px 2px 8px #999999;
@@ -616,6 +620,17 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     height: 33px;
     margin-top: 15px;
     font-weight: bold;
+}
+
+.top-frame ul span {
+    font-size: 12px;
+    position: absolute;
+    bottom: -6px;
+}
+
+.top-frame ul div.sprite-all-google-news {
+    position: absolute;
+    top: -6px;
 }
 
 .inner-frame {
