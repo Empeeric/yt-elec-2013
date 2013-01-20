@@ -31,7 +31,7 @@
             $('.gallery a.active').removeClass('active');
             $(this).addClass('active');
 
-            $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/' + $(this).data('id') + '" frameborder="0" allowfullscreen></iframe>')
+            $('.player').html('<iframe width="640" height="370" src="http://www.youtube.com/embed/' + $(this).data('id') + '?autoplay=1" frameborder="0" allowfullscreen></iframe>')
         });
 
         $('.gallery-prev').on('click', function (e) {
