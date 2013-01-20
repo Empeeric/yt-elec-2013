@@ -73,66 +73,36 @@ var crumbs = function(req, res, next){
 
 
 var channel = function(req, res, next){
-    if(req.page){
-        models
-            .channels
-            .findOne()
-            .where('navigation', req.page._id)
-            .exec(function(err, channel){
-                if(channel) req.channel = channel;
+    if (!req.page) {
+        next();
+        return;
+    }
 
-                next();
-            })
-    }else next();
+    models.channels.findOne({'navigation': req.page._id}, function (err, channel) {
+        if (channel) req.channel = channel;
+        next();
+    });
 };
 
 
 module.exports = function setup_module(app){
-    models
-        .redirect
-        .find()
-        .exec(function(err, rewrite){
-            if(!err) {
-                rewrite.forEach(function(rule){
-                    app.get(encodeURI(rule.route), function(req, res){
-                        res.redirect(rule.status, rule.redirect);
-                    })
-                });
-            }
-        });
+    // Register ReWrite rules.
+    models.redirect.find({}, function (err, rewrite) {
+        if (err) return;
 
-
-    app.get('/contacts', function(req, res){
-        models
-            .contact
-            .find()
-            .exec(function(err, contacts){
-                res.json(err || contacts)
+        rewrite.forEach(function (rule) {
+            var url = encodeURI(rule.route);
+            app.get(url, function (_, res) {
+                res.redirect(rule.status, rule.redirect);
             })
+        });
     });
 
 
-    //cms rules
-    app.get('*', [config_middleware, page, crumbs, channel], function(req, res, next){
-        if(req.query.x) {
-            res.redirect(req.query.x);
-            return;
-        }
-
-        if (!req.page) {
-            next();
-            return''
-        }
-
-        var o = {};
-        o.page = req.page;
-        o.page.query = req.query;
-        o.config = req.config || {};
-        o.crumbs = req.crumbs || {};
-        o.channel = req.channel || {};
-
-        res.locals.development = app.get('env') == "development";
-        res.render(req.page.template.title, o);
+    app.get('/contacts', function(req, res){
+        models.contact.find({}, function (err, contacts) {
+            res.json(err || contacts)
+        })
     });
 
 
@@ -237,5 +207,29 @@ module.exports = function setup_module(app){
     app.get('/google/news', function(req, res){
         res.type('xml');
         res.send(app.get('rss'));
-    })
+    });
+
+
+    //cms rules
+    app.get('*', [config_middleware, page, crumbs, channel], function (req, res, next) {
+        if(req.query.x) {
+            res.redirect(req.query.x);
+            return;
+        }
+
+        if (!req.page) {
+            next();
+            return;
+        }
+
+        var o = {};
+        o.page = req.page;
+        o.page.query = req.query;
+        o.config = req.config || {};
+        o.crumbs = req.crumbs || {};
+        o.channel = req.channel || {};
+
+        res.locals.development = app.get('env') == "development";
+        res.render(req.page.template.title, o);
+    });
 };

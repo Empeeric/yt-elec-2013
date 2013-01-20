@@ -72,29 +72,29 @@ dust.helpers['menu'] = function(chunk, context, bodies) {
             .where('menu', true)
             .sort({order: 1, parent: 1})
             .exec(function(err, menu) {
+                if (err) throw err;
+
                 menu.forEach(function(item){
                     item = item.toObject();
                     items.push(item);
                 });
+
                 //create children tree
-                var itemTree = [];
-                items.forEach(function(item){
-                    if(item.parent){
-                        items.forEach(function(parent){
-                            if(parent._id.id == item.parent.id){
-                                if(parent.child){
-                                    parent.child.push(item);
-                                } else {
-                                    parent.child = [];
-                                    parent.child.push(item);
-                                }
+                var itemsChild = items.filter(function (item) { return item.parent; });
+                itemsChild.forEach(function(item){
+                    items.forEach(function(parent){
+                        if(parent._id.id == item.parent.id){
+                            if(parent.child){
+                                parent.child.push(item);
+                            } else {
+                                parent.child = [];
+                                parent.child.push(item);
                             }
-                        });
-                    } else {
-                        itemTree.push(item);
-                    }
+                        }
+                    });
                 });
-                itemTree.forEach(function(item){
+                var itemsTop = items.filter(function (item) { return !item.parent; });
+                itemsTop.forEach(function(item){
                     item.dock = (crumbs[0]._id.toString() === item._id.toString());
                     context = context.push(item);
                     chunk.render(bodies.block, context)
