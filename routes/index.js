@@ -1,4 +1,6 @@
 var models = require('../models');
+var youtube = require('youtube-feeds');
+var cache = require('../cache');
 
 /*
  middle-wares
@@ -17,6 +19,7 @@ var config_middleware = function(req, res, next){
             next(err);
         })
 };
+
 
 var page = function(req, res, next){
     var id = req.query.id;
@@ -38,6 +41,7 @@ var page = function(req, res, next){
             next(err);
         })
 };
+
 
 var crumbs = function(req, res, next){
     var crumbs = [];
@@ -67,6 +71,7 @@ var crumbs = function(req, res, next){
     else next();
 };
 
+
 var channel = function(req, res, next){
     if(req.page){
         models
@@ -80,6 +85,7 @@ var channel = function(req, res, next){
             })
     }else next();
 };
+
 
 module.exports = function(app){
     models
@@ -149,17 +155,25 @@ module.exports = function(app){
         }
     });
 
-    app.all('/youtube/playlist', function(req, res){
-        var youtube = require('youtube-feeds');
 
-        youtube.feeds.playlist(req.body.playlist, req.body, function(data){
+    app.all('/youtube/playlist', function(req, res){
+        var vars = req.body;
+        var playlistid = vars.playlist;
+        var cache_key = JSON.stringify(vars);
+        var cached_data = cache.get(cache_key);
+        if (cached_data) {
+            console.log('/youtube/playlist cache hit');
+            res.json(cached_data);
+            return
+        }
+        youtube.feeds.playlist(playlistid, vars, function(data){
+            cache.put(cache_key, data, 2 * 60 * 1000);
             res.json(data);
         });
     });
 
-    app.all('/youtube/feeds', function(req, res){
-        var youtube = require('youtube-feeds');
 
+    app.all('/youtube/feeds', function(req, res){
         var original_size = req.body['max-results'];
         req.body['max-results'] = original_size + 4;
         youtube.feeds.videos(req.body, function(data) {
@@ -167,6 +181,7 @@ module.exports = function(app){
             res.json(data);
         });
     });
+
 
     app.post('/users/content', function(req, res){
         req.body['start-index'] || (req.body['start-index'] = 1);
