@@ -21,7 +21,6 @@ app.configure(function(){
     app.engine('html', require('consolidate').dust);
     app.set('view engine', 'html');
     app.set('views', path.join(__dirname, 'views'));
-    app.use(express.logger('dev'));
     app.use(express.compress());
     app.use(express.bodyParser());
     app.use(express.methodOverride());
