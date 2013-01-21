@@ -6,30 +6,6 @@ window.console || (window.console = {log: function(){}});
     var electionDate = new Date("Tue, 22 Jan 2013 05:00:00 GMT");
 
     $(function(){
-        //init the timer
-        $('#timer').countdown({until:electionDate,
-            layout: '<div class="month">' +
-                '<div class="digit">{dn}</div>' +
-                '<p>{dl}</p>' +
-                '</div>' +
-                '<div>' +
-                '<div class="digit">{hnn}</div>' +
-                '<p>{hl}</p>' +
-                '</div>' +
-                '<div class="divider">:</div>' +
-                '<div>' +
-                '<div class="digit">{mnn}</div>' +
-                '<p>{ml}</p>' +
-                '</div>' +
-                '<div class="divider">:</div>' +
-                '<div class="seconds">' +
-                '<div class="digit">{snn}</div>' +
-                '<p>{sl}</p>' +
-                '</div>' +
-                '<span class="before"></span>' +
-                '<span class="after"></span>'
-        });
-
         var $sub_menu_tree = $('.menu ul ul'),
             $sub_menu_copy =$sub_menu_tree.clone(),
             $sub_menu = $sub_menu_copy.find('li');
