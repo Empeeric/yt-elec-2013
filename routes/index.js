@@ -147,7 +147,11 @@ module.exports = function setup_module(app){
             res.json(cached_data);
             return
         }
-        youtube.feeds.playlist(playlistid, vars, function(data){
+        youtube.feeds.playlist(playlistid, vars, function(err, data){
+            if (err) {
+                console.log('error - failed laoding playlins');
+                res.json({});
+            }
             cache.put(cache_key, data, 2 * 60 * 1000);
             res.json(data);
         });
@@ -157,7 +161,7 @@ module.exports = function setup_module(app){
     app.all('/youtube/feeds', function(req, res){
         var original_size = req.body['max-results'];
         req.body['max-results'] = original_size + 4;
-        youtube.feeds.videos(req.body, function(data) {
+        youtube.feeds.videos(req.body, function(err, data) {
             data.items = data.items.filter(function(obj) {return obj.title != 'test1';}).slice(0, original_size);
             res.json(data);
         });
