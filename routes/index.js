@@ -1,6 +1,7 @@
 var models = require('../models');
 var youtube = require('youtube-feeds');
 var cache = require('../cache');
+youtube.timeout = 5000;
 
 /*
  middle-wares
