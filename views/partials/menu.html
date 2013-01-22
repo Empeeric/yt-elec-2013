@@ -1,7 +1,7 @@
 <ul>
     {@menu}
         {?.child}
-            <li><a href="{?url}{url}{:else}?id={id}{/url}" {?dock}class="active"{/dock}>{title}<span class="before"></span><span class="after"></span></a>
+            <li><a href="{?url}{url}{:else}?id={id}{/url}" class="{?live}red{/live}{?dock} active{/dock}">{title}<span class="before"></span><span class="after"></span></a>
                 {?dock}
                 <ul class="sub-menu">
                     {#child}

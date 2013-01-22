@@ -96,6 +96,7 @@ dust.helpers['menu'] = function(chunk, context, bodies) {
                 var itemsTop = items.filter(function (item) { return !item.parent; });
                 itemsTop.forEach(function(item){
                     item.dock = (crumbs[0]._id.toString() === item._id.toString());
+					item.live = item.title == 'LIVE';
                     context = context.push(item);
                     chunk.render(bodies.block, context)
                 });

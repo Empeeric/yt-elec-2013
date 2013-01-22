@@ -499,6 +499,10 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     padding: 0 15px;
 }
 
+.menu li a.red {
+	background: url(images/arrow-menu-red-bg.png);
+}
+
 .menu li a span.after {
     position: absolute;
     top: 0;
@@ -508,6 +512,10 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     width: 15px;
     height: 52px;
     background: url(images/arrow-menu-left-bg.png);
+ }
+ 
+ .menu li a.red span.after {
+	background: url(images/arrow-menu-left-red-bg.png);	
  }
 
 .menu li a span.before {
@@ -521,6 +529,25 @@ li.sprite-all-ynet{background-position: 0 -112px;width: 126px;height: 54px;}
     background: url(images/arrow-menu-right-bg.png);
 }
 
+.menu li a.red span.before {
+	background: url(images/arrow-menu-right-red-bg.png);	
+ }
+ 
+.menu li a.red:hover,
+.menu li a.red.active {
+    background: url(images/arrow-menu-red-bg.png);
+}
+
+.menu li a.red:hover span.before,
+.menu li a.red.active span.before{
+     background: url(images/arrow-menu-right-red-bg.png);
+}
+
+.menu li a.red:hover span.after,
+.menu li a.red.active span.after {
+    background: url(images/arrow-menu-left-red-bg.png);	
+}
+ 
 .menu li a:hover,
 .menu li a.active {
     background: url(images/arrow-menu-bg-hover.png);
