@@ -1163,3 +1163,13 @@ h3 {font-size: 16px; text-align: center;}
     float: right;
     margin-right: 47px;
 }
+
+footer a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
